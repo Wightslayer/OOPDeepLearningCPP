@@ -71,7 +71,13 @@ The neural network class is the orchestrator of the deep learning process. It ca
 `step`: Calls all nodes to update the weights.  
 `print_network`: Utility function to print information about the network.  
 
+### MNISTDataloader
+A dataloader specifically to load MNIST images with their labels from MNSIT_text. The class has two child classes that differentiate in the order in which they provide the data. MNISTTrainLoader provides images randomly (with replacement!!!), while MNISTTestLoader provides images in sequence. The latter is needed as evaluating the model on the test set requires the whole test set to be processed once.
 
+Getting images with their ground truth works as follows: First, the index for the next image+ground truth pair is determined. Second the image and ground truth at that specific index are retrieved.
+
+`next`: Determine the next index. Is random for the train dataloader but deterministic for the test dataloader.
+`get_image` and `get_label`: Returns the image and ground truth label at the current index.
 
 
 
