@@ -39,37 +39,37 @@ During a forward pass, a node computes the sum of all nodes in the previous laye
 Backpropagation happens in two steps. First, each node computes its error term based on the error term and weights of the next layer. Second, the weights are updated in one Stochastic Gradient Descent (SGD) 'step'. Each node needs to know its error term and the output of the previous layer to do so.
 
 Private members/variables:
-`generator`: Used to initialize the weights of each node. It is static as otherwise each node will have the same weights. The weights of the entire network need to be random.
-`_node_idx`: Index to identify the node in a layer
+`generator`: Used to initialize the weights of each node. It is static as otherwise each node will have the same weights. The weights of the entire network need to be random.  
+`_node_idx`: Index to identify the node in a layer.  
 `_weights`: The weights between this node and all nodes of the previous layer. These weights are the parameters that the network updates to correctly predict the data.
-`_prev_layer` and `_next_layer`: Pointers to the previous and next layer. Node pointers are used as information of nodes on previous layers change over time. Furthermore, by having a vector pointer, only two variables (the vector pointers) needs to be stored in a node. If it was a normal vector, each node would have to store as many node references as the previous and next layer have.
-`_a`: Node activation
-`_o`: Node output
+`_prev_layer` and `_next_layer`: Pointers to the previous and next layer. Node pointers are used as information of nodes on previous layers change over time. Furthermore, by having a vector pointer, only two variables (the vector pointers) needs to be stored in a node. If it was a normal vector, each node would have to store as many node references as the previous and next layer have.  
+`_a`: Node activation.  
+`_o`: Node output.  
 `_error`: The error term that is computed during backwards
 
 public functions:
-`Node`: Initializer of Node. The index of this node in its layer is required as a parameter
-`add_previous` and `add_next`: Sets a reference to the previous and next layer.
-`forward`: Computes the activation and output of this node.
-`backward`: Computes the error term of this node. If error is provided (required for the output layer), the node simply saves that error.
-`step`: Updates all weights of this node. The learning rate must be provided as a parameter.
-`get_...` and `set_...`: Used to retrieve or set the private member variables.
+`Node`: Initializer of Node. The index of this node in its layer is required as a parameter.  
+`add_previous` and `add_next`: Sets a reference to the previous and next layer.  
+`forward`: Computes the activation and output of this node.  
+`backward`: Computes the error term of this node. If error is provided (required for the output layer), the node simply saves that error.  
+`step`: Updates all weights of this node. The learning rate must be provided as a parameter.  
+`get_...` and `set_...`: Used to retrieve or set the private member variables.  
 Lastly, the copy contructor and copy assignment operator are set to delete as it is important that each node in the network has only one instance of the node class.
 
 ### Neural_net
 The neural network class is the orchestrator of the deep learning process. It calls nodes in the correct sequence during the forward pass and backward pass. 
 
 Private variables and function.
-`_lr`: The learning rate defining the step size for the nodes.
-`_add_layer`: A utility function used only by the neural net class itself to both create a new layer of nodes and store the references.
+`_lr`: The learning rate defining the step size for the nodes.  
+`_add_layer`: A utility function used only by the neural net class itself to both create a new layer of nodes and store the references.  
 `_layers`: All layers in the deep neural network. Nodes and layers (a vector of Nodes) are pointers as the number of required nodes and layers are provided by the user and therefore not known in advance.
 
 Public functions
-`NeuralNet`: Class contructor. The learning rate provided scales the gradients when the node weights are updated.
-`forward`: Call the nodes of all layers in sequence from input to output to perform a forward pass. This function expects an MNIST image as a vector of floats
-`backward`: Calls the nodes of all but the input layer in sequence from output to input to compute the error terms. This function expects the gradient of the loss wrt. the network output as a vector of floats.
-`step`: Calls all nodes to update the weights.
-`print_network`: Utility function to print information about the network.
+`NeuralNet`: Class contructor. The learning rate provided scales the gradients when the node weights are updated.  
+`forward`: Call the nodes of all layers in sequence from input to output to perform a forward pass. This function expects an MNIST image as a vector of floats.  
+`backward`: Calls the nodes of all but the input layer in sequence from output to input to compute the error terms. This function expects the gradient of the loss wrt. the network output as a vector of floats.  
+`step`: Calls all nodes to update the weights.  
+`print_network`: Utility function to print information about the network.  
 
 
 
