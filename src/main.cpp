@@ -94,7 +94,7 @@ void eval_model(MNISTTestLoader dataloader, NeuralNet model)
 
 int main(){
 
-    float learning_rate = 1e-5;
+    float learning_rate = 1e-6;
 
     NeuralNet nnet(learning_rate);
 
