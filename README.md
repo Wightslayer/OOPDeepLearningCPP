@@ -6,7 +6,9 @@ My very first deep neural network was a multilayer perceptron implemented in sim
 
 
 ## Building and Running
-I used the hello world makefile provided by Udacity to compile the program. To compile and run the program:
+First, download this repo and unzip mnist_data.zip to get the MNIST dataset.
+
+For compilation, I used the hello world makefile provided by Udacity to compile the program. You can perform the following steps to compile and run the program:
 
 ``` 
  mkdir build
@@ -15,6 +17,12 @@ I used the hello world makefile provided by Udacity to compile the program. To c
  make
  ./OOPDeepLearning
  ```
+
+When running the program there is an interaction between the program and the user. You will first be asked how many hidden layers you want to have. You will need to provide a number here. My recommendation would be 2.
+Next, you are asked how many nodes you want per layer. I recommend 256 for the first hidden layer and 128 for the second hidden layer. Here a picture describing the entire process:
+
+TODO: Add picture here
+
 
 
 
