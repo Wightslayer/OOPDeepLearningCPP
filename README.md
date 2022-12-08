@@ -39,8 +39,18 @@ During a forward pass, a node computes the sum of all nodes in the previous laye
 Backpropagation happens in two steps. First, each node computes its error term based on the error term and weights of the next layer. Second, the weights are updated in one Stochastic Gradient Descent (SGD) 'step'. Each node needs to know its error term and the output of the previous layer to do so.
 
 Private members/variables:
-`generator': Used to initialize the weights of each node. It is static as otherwise each node will have the same weights. The weights of the entire network need to be random.
+`generator`: Used to initialize the weights of each node. It is static as otherwise each node will have the same weights. The weights of the entire network need to be random.
 `_node_idx`: Index to identify the node in a layer
+`_weights`: The weights between this node and all nodes of the previous layer. These weights are the parameters that the network updates to correctly predict the data.
+`_prev_layer` and `_next_layer`: Pointers to the previous and next layer. Node pointers are used as information of nodes on previous layers change over time. Furthermore, by having a vector pointer, only two variables (the vector pointers) needs to be stored in a node. If it was a normal vector, each node would have to store as many node references as the previous and next layer have.
+`_a`: Node activation
+`_o`: Node output
+`_error`: The error term that is computed during backwards
+
+public functions:
+
+
+
 
 
 For a better understanding, I can highly recommend [this](https://brilliant.org/wiki/backpropagation/) page of Brilliant: 
