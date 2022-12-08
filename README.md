@@ -44,6 +44,7 @@ Private members/variables:
 `_weights`: The weights between this node and all nodes of the previous layer. These weights are the parameters that the network updates to correctly predict the data.
 `_prev_layer` and `_next_layer`: Pointers to the previous and next layer. Node pointers are used as information of nodes on previous layers change over time. Furthermore, by having a vector pointer, only two variables (the vector pointers) needs to be stored in a node. If it was a normal vector, each node would have to store as many node references as the previous and next layer have.
 `_a`: Node activation
+
 `_o`: Node output
 `_error`: The error term that is computed during backwards
 
