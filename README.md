@@ -6,7 +6,10 @@ My very first deep neural network was a multilayer perceptron implemented in sim
 
 
 ## Building and Running
-First, download this repo and unzip mnist_data.zip to get the MNIST dataset.
+First, download this repo and unzip mnist_data.zip to get the MNIST dataset. If you are on the Udacity Workspace, you can use:
+```
+unzip mnist_data.zip
+```
 
 For compilation, I used the hello world makefile provided by Udacity to compile the program. You can perform the following steps to compile and run the program:
 
@@ -23,7 +26,7 @@ Next, you are asked how many nodes you want per layer. I recommend 256 for the f
 
 TODO: Add picture here
 
-
+## Code Behavior & Class Structure
 
 
 
