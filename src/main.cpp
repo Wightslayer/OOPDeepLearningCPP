@@ -10,8 +10,11 @@
 using std::vector;
 
 
-void SoftMaxLoss(vector<float> logits, vector<int> target, float &loss, vector<float> &gradient)
+void SoftMaxGradLoss(vector<float> logits, vector<int> target, float &loss, vector<float> &gradient)
 {
+    // Computes the softmax loss and gradient of the logits wrt. the target. 
+    // The loss and gradient are provided by reference to provide more than one output with this function
+
     float exp_result;
     vector<float> exp_results;
     float probability;
@@ -26,6 +29,7 @@ void SoftMaxLoss(vector<float> logits, vector<int> target, float &loss, vector<f
         }
     }
 
+    // Prepare to compute gradient and loss
     float expsum = 0;
     for (float logit : logits)
     {
@@ -34,6 +38,7 @@ void SoftMaxLoss(vector<float> logits, vector<int> target, float &loss, vector<f
         expsum += exp_result;
     }
 
+    // Compute the loss and gradient
     for (int i = 0; i < logits.size(); i++)
     {
         probability = exp_results[i] / expsum;
@@ -47,6 +52,7 @@ void SoftMaxLoss(vector<float> logits, vector<int> target, float &loss, vector<f
 
 void eval_model(MNISTTestLoader dataloader, NeuralNet model)
 {
+    // Evaluates the model on the MNIST test set
     vector<float> image;
     vector<int>  target;
     vector<float> pred;
@@ -55,13 +61,14 @@ void eval_model(MNISTTestLoader dataloader, NeuralNet model)
     int correct = 0;
 
     std::cout << "Evaluating model performance...\n";
-    for (int i = 0; i < 10000; i++)
+    for (int i = 0; i < 10000; i++)  // For each image in test set
     {
         image = dataloader.get_image();
         target = dataloader.get_label();
 
         pred = model.forward(image);
 
+        // Find predicted number
         for (int j = 0; j < 10; j++)
         {
             if (pred[j] > max_prob)
@@ -71,6 +78,8 @@ void eval_model(MNISTTestLoader dataloader, NeuralNet model)
             }
         }
         max_prob = 0;
+
+        // Keep track of number of correct predictions
         if (target[max_ind] == 1)
         {
             correct++;
@@ -110,6 +119,7 @@ int main(){
 
     for (int i = 1; i < 100000; i++)
     {
+        // Prints for user
         if ((i - 1) % 60000 == 0)
         {
             epoch++;
@@ -117,16 +127,19 @@ int main(){
             std::cout << ">>>>> Epoch " << epoch << ".\n";
         }
 
+        // Get next training sample
         train_loader.next();
         image = train_loader.get_image();
         target = train_loader.get_label();
 
+        // Learn the data
         gradient.clear();
         output = nnet.forward(image);
-        SoftMaxLoss(output, target, loss, gradient);
+        SoftMaxGradLoss(output, target, loss, gradient);
         nnet.backward(gradient);
         nnet.step();
 
+        // prints for user
         avg_loss += loss;
         if (i % eval_every == 0)
         {

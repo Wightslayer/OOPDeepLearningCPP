@@ -1,29 +1,20 @@
-#include <dirent.h>
-#include <unistd.h>
 #include <sstream>
-#include <string>
-#include <vector>
-#include <iostream>
 #include <fstream>
-#include <random>
-#include <algorithm>
 
 #include "dataloader.h"
 
-using std::stof;
 using std::string;
-using std::to_string;
 using std::vector;
 
 void MNISTTrainLoader::next()
 {
-    // Prepare next sample
+    // Generate index for next sample
     _index = _index_distr(_gen);
 }
 
 void MNISTTestLoader::next()
 {
-    // Prepare next sample
+    // Compute index for next sample
     _index = (_index + 1) % 10000;
     
 }
@@ -50,6 +41,7 @@ vector<int> MNISTDataloader::get_label()
 
     for (int i = 0; i < 10; i++)
     {
+        // One-hot. One if label (0,1,...,9) equals index i, 0 otherwise.
         if (i == _labels[_index])
         {
             label.push_back(1);
@@ -66,11 +58,14 @@ vector<int> MNISTDataloader::get_label()
 
 vector<int> MNISTDataloader::_get_labels(string path)
 {
+    // Reads all labels from a MNIST_txt dataset split.
+    // Path is the path to the labels file
+    // Code modified from Udacity's system monitor assessment
+
     string line;
     string label;
     vector<int> labels;
     std::istringstream linestream;
-
 
     std::ifstream filestream(path);
 
@@ -82,14 +77,18 @@ vector<int> MNISTDataloader::_get_labels(string path)
         }        
     }
 
-    return labels;
+    return labels;  // All labels are stored in memory
 }
 
 vector<vector<float>> MNISTDataloader::_get_images(string path)
 {
+    // Reads all images from a MNIST_txt dataset split.
+    // Path is the path to the images file
+    // Code modified from Udacity's system monitor assessment
+
     string line;
     string pixel;
-    vector<vector<float>> images;
+    vector<vector<float>> images;  // All images are stored in memory
 
     std::ifstream filestream(path);
 
@@ -110,6 +109,9 @@ vector<vector<float>> MNISTDataloader::_get_images(string path)
     
 MNISTTrainLoader::MNISTTrainLoader()
 {
+    // Constructs the MNISTTrainLoader class.
+    
+    // Sample training samples randomly
     _gen = std::mt19937(rd());
     _index_distr = std::uniform_int_distribution<int>(0, 59999);
     _index = _index_distr(_gen);
@@ -121,6 +123,9 @@ MNISTTrainLoader::MNISTTrainLoader()
 
 MNISTTestLoader::MNISTTestLoader()
 {
+    // Constructs the MNISTTestLoader class.
+    
+    // Sample testing samples in order  
     _index = 0;
 
     _images = _get_images("../mnist_txt/test_images.txt");
@@ -129,6 +134,9 @@ MNISTTestLoader::MNISTTestLoader()
 
 void MNISTDataloader::draw_image(vector<float> image)
 {
+    // Visualizes the image on the terminal in ascii format
+    // The output has a '#' for non-zero pixels and '.' otherwise.
+
     float pixel;
     // Image is 28 x 28 pixels. 28 * 28 = 784.
     for (int i = 0; i < 784; i++){
@@ -149,6 +157,8 @@ void MNISTDataloader::draw_image(vector<float> image)
 
 void MNISTDataloader::draw_image_detail(vector<float> image)
 {
+    // Visualizes the image on the terminal with each pixel being printed as the actual number.
+
     float pixel;
     // Image is 28 x 28 pixels. 28 * 28 = 784.
     for (int i = 0; i < 784; i++){
@@ -167,41 +177,3 @@ void MNISTDataloader::draw_image_detail(vector<float> image)
         }
     }
 }
-
-// int main()
-// {
-//     // MNISTTrainLoader train_loader;
-//     MNISTTrainLoader test_loader;
-//     int label;
-//     vector<float> image;
-//     label = test_loader.get_label();
-//     image = test_loader.get_image();
-
-//     std::cout << label << "\n";
-//     test_loader.draw_image(image);
-
-//     test_loader.next();
-//     label = test_loader.get_label();
-//     image = test_loader.get_image();
-
-//     std::cout << label << "\n";
-//     test_loader.draw_image(image);
-
-//     test_loader.next();
-//     label = test_loader.get_label();
-//     image = test_loader.get_image();
-
-//     std::cout << label << "\n";
-//     test_loader.draw_image(image);
-
-//     test_loader.next();
-//     label = test_loader.get_label();
-//     image = test_loader.get_image();
-
-//     std::cout << label << "\n";
-//     test_loader.draw_image(image);
-    
-
-//     return 0;
-// }
-

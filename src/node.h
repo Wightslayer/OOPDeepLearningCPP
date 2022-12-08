@@ -28,7 +28,7 @@ class Node
     float get_output();
 
     // Setters
-    void set_output(float o);  // Used to prepare input layer and set bias node.
+    void set_output(float o);  // Used to prepare input layer
 
     // Node should not be copied!
     Node(const Node&) = delete;
@@ -39,9 +39,9 @@ class Node
     static std::default_random_engine generator;  // Make static to prevent all nodes from having same weights
 
     int _node_idx;  // Index of the node in a layer.
-    vector<float> _weights;
-    vector<Node *> *_prev_layer;
-    vector<Node *> *_next_layer;
+    vector<float> _weights;  // One weight per node in the previous layer (includes bias)
+    vector<Node *> *_prev_layer;  // Pointer to previous layer
+    vector<Node *> *_next_layer;  // Pointer to next layer
     float _a;  // Activation
     float _o;  // Output
     float _error;  // The error term of this node, for next (previous) layer during backprop.
