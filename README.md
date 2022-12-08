@@ -8,11 +8,13 @@ My very first deep neural network was a multilayer perceptron implemented in sim
 ## Building and Running
 I used the hello world makefile provided by Udacity to compile the program. To compile and run the program:
 
-``` mkdir build
-``` cd build
-``` cmake ..
-``` make
-``` ./OOPDeepLearning
+``` 
+ mkdir build
+ cd build
+ cmake ..
+ make
+ ./OOPDeepLearning
+ ```
 
 
 
