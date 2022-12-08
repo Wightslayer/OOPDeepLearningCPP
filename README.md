@@ -28,6 +28,19 @@ TODO: Add picture here
 
 ## Code Behavior & Class Structure
 
+### Summary
+The code creates a deep nearal network model based on input provided by the user. Both the forward pass and backward pass with backpropagation are implemented to learn the data. Over time, the model gets better at predicting the data, obtaining higher accuracy on the test set and lower loss on the training set.
+
+### Classes overview
+
+#### Node
+During a forward pass, a node computes the sum of all nodes in the previous layer multiplied by some weights, which results in activation 'a'. Next, the node applied the ReLu activation funtion to get the node's output 'o'.
+
+Backpropagation happens in two steps. First, each node computes its error term based on the error term and weights of the next layer. Second, the weights are updated in one Stochastic Gradient Descent (SGD) 'step'. Each node needs to know its error term and the output of the previous layer to do so.
+
+Private members/variables:
+`generator': Used to initialize the weights of each node. It is static as otherwise each node will have the same weights. The weights of the entire network need to be random.
+`_node_idx`: Index to identify the node in a layer
 
 
 For a better understanding, I can highly recommend [this](https://brilliant.org/wiki/backpropagation/) page of Brilliant: 
