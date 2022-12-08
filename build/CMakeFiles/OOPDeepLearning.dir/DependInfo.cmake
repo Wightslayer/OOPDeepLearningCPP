@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lando/CppND-Capstone-Hello-World/src/main.cpp" "/home/lando/CppND-Capstone-Hello-World/build/CMakeFiles/OOPDeepLearning.dir/src/main.cpp.o"
+  "/home/lando/OOPDeepLearningCPP/src/main.cpp" "/home/lando/OOPDeepLearningCPP/build/CMakeFiles/OOPDeepLearning.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

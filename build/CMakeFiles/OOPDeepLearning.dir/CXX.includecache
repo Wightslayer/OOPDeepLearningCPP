@@ -6,47 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/lando/CppND-Capstone-Hello-World/src/dataloader.cpp
-dirent.h
--
-unistd.h
--
+/home/lando/OOPDeepLearningCPP/src/dataloader.cpp
 sstream
 -
-string
--
-vector
--
-iostream
--
 fstream
--
-random
--
-algorithm
 -
 dataloader.h
-/home/lando/CppND-Capstone-Hello-World/src/dataloader.h
+/home/lando/OOPDeepLearningCPP/src/dataloader.h
 
-/home/lando/CppND-Capstone-Hello-World/src/dataloader.h
-dirent.h
--
-unistd.h
--
-sstream
--
+/home/lando/OOPDeepLearningCPP/src/dataloader.h
 string
 -
 vector
 -
-iostream
--
-fstream
--
-random
--
 
-/home/lando/CppND-Capstone-Hello-World/src/main.cpp
+/home/lando/OOPDeepLearningCPP/src/main.cpp
 iostream
 -
 vector
@@ -56,13 +30,13 @@ string
 math.h
 -
 node.cpp
-/home/lando/CppND-Capstone-Hello-World/src/node.cpp
+/home/lando/OOPDeepLearningCPP/src/node.cpp
 neural_net.cpp
-/home/lando/CppND-Capstone-Hello-World/src/neural_net.cpp
+/home/lando/OOPDeepLearningCPP/src/neural_net.cpp
 dataloader.cpp
-/home/lando/CppND-Capstone-Hello-World/src/dataloader.cpp
+/home/lando/OOPDeepLearningCPP/src/dataloader.cpp
 
-/home/lando/CppND-Capstone-Hello-World/src/neural_net.cpp
+/home/lando/OOPDeepLearningCPP/src/neural_net.cpp
 vector
 -
 iostream
@@ -72,15 +46,15 @@ string
 memory
 -
 neural_net.h
-/home/lando/CppND-Capstone-Hello-World/src/neural_net.h
+/home/lando/OOPDeepLearningCPP/src/neural_net.h
 
-/home/lando/CppND-Capstone-Hello-World/src/neural_net.h
+/home/lando/OOPDeepLearningCPP/src/neural_net.h
 vector
 -
 node.h
-/home/lando/CppND-Capstone-Hello-World/src/node.h
+/home/lando/OOPDeepLearningCPP/src/node.h
 
-/home/lando/CppND-Capstone-Hello-World/src/node.cpp
+/home/lando/OOPDeepLearningCPP/src/node.cpp
 vector
 -
 iostream
@@ -90,9 +64,9 @@ random
 math.h
 -
 node.h
-/home/lando/CppND-Capstone-Hello-World/src/node.h
+/home/lando/OOPDeepLearningCPP/src/node.h
 
-/home/lando/CppND-Capstone-Hello-World/src/node.h
+/home/lando/OOPDeepLearningCPP/src/node.h
 vector
 -
 random
