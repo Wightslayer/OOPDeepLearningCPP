@@ -5,5 +5,17 @@ Udacity Capstone Project for the C++ nanodegree. In this project, I have impleme
 My very first deep neural network was a multilayer perceptron implemented in similarly to this repo, but then in Python. Training a network was horribly slow as multiplications were done in vanilla python with for loops and such. Considering the increase in speed with a compiled language like C++, I was motivated to re-implement that old project as my capstone project.
 
 
+## Building and Running
+I used the hello world makefile provided by Udacity to compile the program. To compile and run the program:
+
+``` mkdir build
+``` cd build
+``` cmake ..
+``` make
+``` ./OOPDeepLearning
+
+
+
+
 For a better understanding, I can highly recommend [this](https://brilliant.org/wiki/backpropagation/) page of Brilliant: 
 
