@@ -117,16 +117,16 @@ For example, in main.cpp, the function SoftMaxGradLoss contains structures like 
 My program reads from files in MNIST_txt. These files contain MNIST images with their labels. Please see dataloader.cpp line 59 to 108 for my code that reads from these files. The return values of these functions is the training data used to train the neural network.
 
 #### The project accepts user input and processes the input.
-When the program starts, a small interaction with the user is performed to dynamically build the network. This interaction takes place in neural_net.cpp, line 13 to 40.
+When the program starts, a small interaction with the user is performed to dynamically build the network. This interaction takes place in neural_net.cpp, line 12 to 39.
 
 
 ### Object Oriented Programming
 
 #### The project uses Object Oriented Programming techniques.
-Every .h file shows that classes have private member variables or function and also public facing functions to interact with the class.
+Every .h file shows that classes have private member variables or function and also public facing functions to interact with the class. Furthermore, in dataloder.h line 20, I used protected at the derived classes need to access these members.
 
 #### Classes use appropriate access specifiers for class members.
-Every .h file shows private and public variables/functions. Moreover, the inheritence in dataloader.h line 32 to 53 show that the parent class is inheritet as public because the functions inside the parent class need to be accessed through the derived class.
+Every .h file shows private and public variables/functions. Moreover, the inheritence in dataloader.h line 30 to 51 show that the parent class is inherited as public because the functions inside the parent class need to be accessed through the derived class.
 
 #### Overloaded functions allow the same function to operate on different parameters.
 The node class has 2 implementations for backward, depending if a parameter is provided. The implementation of the function and overloaded function is in node.cpp line 71 to 92.
@@ -135,13 +135,3 @@ The node class has 2 implementations for backward, depending if a parameter is p
 
 #### The project makes use of references in function declarations.
 The SoftMaxGradLoss in main.cpp uses has 2 parameters as references. I use references here as I need 2 outputs from the function.
-
-
-
-
-
-
-
-
- 
-
