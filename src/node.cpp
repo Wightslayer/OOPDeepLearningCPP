@@ -1,9 +1,9 @@
 #include <vector>
-#include <iostream>
 #include <random>
 #include <math.h>
 
 #include "node.h"
+
 using std::vector;
 
 float ReLu(float a)

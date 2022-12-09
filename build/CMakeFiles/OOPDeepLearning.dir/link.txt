@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/OOPDeepLearning.dir/src/main.cpp.o  -o OOPDeepLearning 

@@ -41,7 +41,7 @@ vector<int> MNISTDataloader::get_label()
 
     for (int i = 0; i < 10; i++)
     {
-        // One-hot. One if label (0,1,...,9) equals index i, 0 otherwise.
+        // One-hot. One if label (0,1,...,9) equals index i, zero otherwise.
         if (i == _labels[_index])
         {
             label.push_back(1);

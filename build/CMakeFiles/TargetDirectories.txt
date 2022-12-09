@@ -1,3 +1,0 @@
-/home/lando/OOPDeepLearningCPP/build/CMakeFiles/rebuild_cache.dir
-/home/lando/OOPDeepLearningCPP/build/CMakeFiles/edit_cache.dir
-/home/lando/OOPDeepLearningCPP/build/CMakeFiles/OOPDeepLearning.dir

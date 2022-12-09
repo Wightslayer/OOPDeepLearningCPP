@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <memory>
 
 #include "neural_net.h"
 

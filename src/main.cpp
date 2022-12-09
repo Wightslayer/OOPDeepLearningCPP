@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <math.h>
 
 #include "node.cpp"
@@ -53,8 +52,9 @@ void SoftMaxGradLoss(vector<float> logits, vector<int> target, float &loss, vect
 void eval_model(MNISTTestLoader dataloader, NeuralNet model)
 {
     // Evaluates the model on the MNIST test set
+
     vector<float> image;
-    vector<int>  target;
+    vector<int> target;
     vector<float> pred;
     float max_prob = 0;
     int max_ind = 0;
@@ -95,18 +95,18 @@ void eval_model(MNISTTestLoader dataloader, NeuralNet model)
 int main(){
 
     float learning_rate = 1e-6;
+    int eval_every = 10000;
 
     NeuralNet nnet(learning_rate);
 
-    vector<float> gradient;
-
     MNISTTrainLoader train_loader;
     MNISTTestLoader test_loader;
+    
     vector<float> image;
-    vector<int>  target;
+    vector<int> target;
     vector<float> output;
+    vector<float> gradient;
 
-    int eval_every = 10000;
     float loss;
     float avg_loss = 0;
     int epoch = 0;
