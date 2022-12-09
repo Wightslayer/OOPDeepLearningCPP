@@ -1,12 +1,9 @@
 # OOPDeepLearningCPP; A horrible way to do deep learning
-Udacity Capstone Project for the C++ nanodegree. Building my own application starting from the Udacity hello world.
+Udacity Capstone Project for the C++ nanodegree; Building my own application starting from the Udacity starter repo.
 
 In this project, I have implemented a multilayer perceptron for MNIST image classification. Contrary to normal solutions implemented with tensors and matrix algebra, in my solution each node is a unique object. As such, we miss the great great optimization we get from tensor operations and also lose the ability for hardware optimization with CUDA. Nevertheless, it's a fun project where we can really break down the math to individual numbers being updated and also allowing us to use fundamental C++ concepts required to pass the capstone project.
 
 We use a slighly modified version of the MNIST dataset, namely MNIST_txt. The original dataset is represented in binary format. My MNIST_txt dataset has images represented as lines, where each line is are the pixel values of the image separated by ', '. This modification in the dataset makes it easier to parse, albeit at the cost of increased disk space requirement.
-
-For a better understanding of deep learning with a multilayered perceptron, I can highly recommend [this](https://brilliant.org/wiki/backpropagation/) page of Brilliant. 
-
 
 ## Motivation (can be skipped)
 My very first deep neural network was a multilayer perceptron implemented in similarly to this repo, but then in Python. Training a network was horribly slow as multiplications were done in vanilla python with for loops and such. Considering the increase in speed with a compiled language like C++, I was motivated to re-implement that old project as my capstone project.
@@ -36,7 +33,8 @@ TODO: Add picture here
 ## Code Behavior & Class Structure
 
 ### Summary
-The code creates a deep nearal network model based on input provided by the user. Both the forward pass and backward pass with backpropagation are implemented to learn the data. Over time, the model gets better at predicting the data, obtaining higher accuracy on the test set and lower loss on the training set.
+The code creates a deep neural network model based on input provided by the user. Both the forward pass and backward pass with backpropagation are implemented to learn the data. Over time, the model gets better at predicting the data, obtaining higher accuracy on the test set and lower loss on the training set. For a better understanding of deep learning with a multilayered perceptron, I can highly recommend [this](https://brilliant.org/wiki/backpropagation/) page of Brilliant. 
+
 
 ### Classes overview
 
@@ -93,10 +91,10 @@ Getting images with their ground truth works as follows: First, the index for th
 
 #### The project demonstrates an understanding of C++ functions and control structures.
 My program is organised into functions. As can be observed in any .cpp file.  
-In main.cpp, the function SoftMaxGradLoss contains structures like loops, if statements, different data types, pass by value and pass by reference to the SoftMaxGradLoss intself.
+For example, in main.cpp, the function SoftMaxGradLoss contains structures like loops, if statements, various data types, pass by value and pass by reference to the SoftMaxGradLoss fuction itself.
 
 #### The project reads data from a file and process the data, or the program writes data to a file.
-My program reads from files in MNIST_txt. These files contain MNIST images with their labels. Please see dataloader.cpp line 59 to 108 for my code that reads from these files. The return values of these functions is the training data used to train the neural network
+My program reads from files in MNIST_txt. These files contain MNIST images with their labels. Please see dataloader.cpp line 59 to 108 for my code that reads from these files. The return values of these functions is the training data used to train the neural network.
 
 #### The project accepts user input and processes the input.
 When the program starts, a small interaction with the user is performed to dynamically build the network. This interaction takes place in neural_net.cpp, line 13 to 40.
@@ -105,18 +103,18 @@ When the program starts, a small interaction with the user is performed to dynam
 ### Object Oriented Programming
 
 #### The project uses Object Oriented Programming techniques.
-Every .h file shows that classes have private member variables or function and also public facing functions to interact with the class
+Every .h file shows that classes have private member variables or function and also public facing functions to interact with the class.
 
 #### Classes use appropriate access specifiers for class members.
 Every .h file shows private and public variables/functions. Moreover, the inheritence in dataloader.h line 32 to 53 show that the parent class is inheritet as public because the functions inside the parent class need to be accessed through the derived class.
 
 #### Overloaded functions allow the same function to operate on different parameters.
-The node class has 2 implementations for backward, depending if a parameter is provided. The implementation of the function and overloaded function is in node.cpp line 71 to 92
+The node class has 2 implementations for backward, depending if a parameter is provided. The implementation of the function and overloaded function is in node.cpp line 71 to 92.
 
 ### Memory Management
 
 #### The project makes use of references in function declarations.
-The SoftMaxGradLoss in main.cpp uses has 2 parameters as references. I use references here as I need 2 outputs from the function
+The SoftMaxGradLoss in main.cpp uses has 2 parameters as references. I use references here as I need 2 outputs from the function.
 
 
 
