@@ -59,7 +59,7 @@ Backpropagation happens in two steps. First, each node computes its error term b
 `get_...` and `set_...`: Used to retrieve or set the private member variables.  
 Lastly, the copy contructor and copy assignment operator are set to delete as it is important that each node in the network has only one instance of the node class.
 
-### Neural_net
+#### Neural_net
 The neural network class is the orchestrator of the deep learning process. It calls nodes in the correct sequence during the forward pass and backward pass. 
 
 **Private variables and function.**  
@@ -74,7 +74,7 @@ The neural network class is the orchestrator of the deep learning process. It ca
 `step`: Calls all nodes to update the weights.  
 `print_network`: Utility function to print information about the network.  
 
-### MNISTDataloader
+#### MNISTDataloader
 A dataloader specifically to load MNIST images with their labels from MNSIT_text. The class has two child classes that differentiate in the order in which they provide the data. MNISTTrainLoader provides images randomly (with replacement!!!), while MNISTTestLoader provides images in sequence. The latter is needed as evaluating the model on the test set requires the whole test set to be processed once.
 
 Getting images with their ground truth works as follows: First, the index for the next image+ground truth pair is determined. Second the image and ground truth at that specific index are retrieved.
@@ -94,7 +94,7 @@ In main.cpp, the function SoftMaxGradLoss contains structures like loops, if sta
 #### The project reads data from a file and process the data, or the program writes data to a file.
 My program reads from files in MNIST_txt. These files contain MNIST images with their labels. Please see dataloader.cpp line 59 to 108 for my code that reads from these files. The return values of these functions is the training data used to train the neural network
 
-### The project accepts user input and processes the input.
+#### The project accepts user input and processes the input.
 When the program starts, a small interaction with the user is performed to dynamically build the network. This interaction takes place in neural_net.cpp, line 13 to 40.
 
 
