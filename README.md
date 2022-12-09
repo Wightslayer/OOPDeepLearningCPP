@@ -28,7 +28,7 @@ For compilation, I used the hello world makefile provided by Udacity to compile 
 When running the program there is an interaction between the program and the user. You will first be asked how many hidden layers you want to have. You will need to provide a number here. My recommendation would be 2.
 Next, you are asked how many nodes you want per layer. I recommend 256 for the first hidden layer and 128 for the second hidden layer. Here a picture describing the entire process:
 
-TODO: Add picture here
+![](images/starting.png)
 
 When the program starts running, it will first display some statistics about the network just created. During training, the performance of the model is tested and displayed to the console. You can expect the loss on the training set to go down and the accuracy on the test set to go up. Here an example of the output after the first 5~10 minutes:
 
