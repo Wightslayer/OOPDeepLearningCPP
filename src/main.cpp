@@ -117,7 +117,7 @@ int main(){
 
     eval_model(test_loader, nnet);
 
-    for (int i = 1; i < 100000; i++)
+    while (true)
     {
         // Prints for user
         if ((i - 1) % 60000 == 0)
