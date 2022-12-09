@@ -36,7 +36,7 @@ class Node
 
     private:
     // Modified from the C++ website: https://cplusplus.com/reference/random/normal_distribution/
-    static std::default_random_engine generator;  // Make static to prevent all nodes from having same weights
+    static std::default_random_engine _generator;  // Make static to prevent all nodes from having same weights
 
     int _node_idx;  // Index of the node in a layer.
     vector<float> _weights;  // One weight per node in the previous layer (includes bias)
@@ -51,6 +51,6 @@ class Node
 // We have to initialize the variable so it can be used in the nodes in the network.
 // This stackoverflow post describes why we do the line below.
 // https://stackoverflow.com/questions/37053677/initializing-static-default-random-engine
-std::default_random_engine Node::generator = std::default_random_engine{};
+std::default_random_engine Node::_generator = std::default_random_engine{};
 
 #endif
