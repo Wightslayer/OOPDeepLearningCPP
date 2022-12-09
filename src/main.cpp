@@ -117,7 +117,7 @@ int main(){
 
     eval_model(test_loader, nnet);
 
-    for (int i = 1; 1 < 10**10; i++)
+    for (int i = 1; 1 < 100000000; i++)
     {
         // Prints for user
         if ((i - 1) % 60000 == 0)
