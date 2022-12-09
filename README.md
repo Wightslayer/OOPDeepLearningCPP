@@ -1,5 +1,7 @@
 # OOPDeepLearningCPP; A horrible way to do deep learning
-Udacity Capstone Project for the C++ nanodegree. In this project, I have implemented a multilayer perceptron for MNIST image classification. Contrary to normal solutions implemented with tensors and matrix algebra, in my solution each node is a unique object. As such, we miss the great great optimization we get from tensor operations and also lose the ability for hardware optimization with CUDA. Nevertheless, it's a fun project where we can really break down the math to individual numbers being updated and also allowing us to use fundamental C++ concepts required to pass the capstone project.
+Udacity Capstone Project for the C++ nanodegree. Building my own application starting from the Udacity hello world.
+
+In this project, I have implemented a multilayer perceptron for MNIST image classification. Contrary to normal solutions implemented with tensors and matrix algebra, in my solution each node is a unique object. As such, we miss the great great optimization we get from tensor operations and also lose the ability for hardware optimization with CUDA. Nevertheless, it's a fun project where we can really break down the math to individual numbers being updated and also allowing us to use fundamental C++ concepts required to pass the capstone project.
 
 For a better understanding of backpropagation, I can highly recommend [this](https://brilliant.org/wiki/backpropagation/) page of Brilliant. 
 
