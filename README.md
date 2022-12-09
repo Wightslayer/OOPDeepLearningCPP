@@ -34,6 +34,9 @@ When the program starts running, it will first display some statistics about the
 
 ![](images/Sample_output.png)
 
+As can be seen, the model improves. Please note that your output may differ due to random weight initialization. Also note that it's possible for the test accuracy to stall and the train loss to be nan. This is due to large gradients and to big updates. You can try different model configurations if that happens. Lastly, if you train for long enough, the test accuracy goes down again. This is due to overfitting. The model no longer learn to recognize numbers, but rather recognize the exact training samples. This is normal behavior.
+
+
 ## Code Behavior & Class Structure
 
 ### Summary
