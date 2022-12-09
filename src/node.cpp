@@ -39,7 +39,7 @@ void Node::add_previous(vector<Node *> *layer)
     // All but the bias node
     for (int i = 0; i < n_nodes - 1; i++)
     {
-        weight = weight_sampler(generator);
+        weight = weight_sampler(_generator);
         _weights.push_back(weight);
     }
 
