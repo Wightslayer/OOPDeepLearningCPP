@@ -32,6 +32,7 @@ Next, you are asked how many nodes you want per layer. I recommend 256 for the f
 
 When the program starts running, it will first display some statistics about the network just created. During training, the performance of the model is tested and displayed to the console. You can expect the loss on the training set to go down and the accuracy on the test set to go up. Here an example of the output after the first 5~10 minutes:
 
+![](images/Sample_output.png)
 
 ## Code Behavior & Class Structure
 
