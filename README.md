@@ -15,7 +15,7 @@ First, download this repo and unzip mnist_data.zip to get the MNIST dataset. If 
 unzip mnist_data.zip
 ```
 
-For compilation, I used the hello world makefile provided by Udacity to compile the program. You can perform the following steps to compile and run the program:
+For compilation, I used the starter repo makefile provided by Udacity to compile the program. You can perform the following steps to compile and run the program:
 
 ``` 
  mkdir build
@@ -34,7 +34,7 @@ When the program starts running, it will first display some statistics about the
 
 ![](images/Sample_output.png)
 
-As can be seen, the model improves. Please note that your output may differ due to random weight initialization. Also note that it's possible for the test accuracy to stall and the train loss to be nan. This is due to large gradients and to big updates. You can try different model configurations if that happens. Lastly, if you train for long enough, the test accuracy goes down again. This is due to overfitting. The model no longer learn to recognize numbers, but rather recognize the exact training samples. This is normal behavior.
+As can be seen, the model improves. Please note that your output may differ due to random weight initialization. Also note that it's possible for the test accuracy to stall and the train loss to be nan. This is due to exploding gradients and to too large weights. You can try different model configurations if that happens. Lastly, if you train for long enough, the test accuracy goes down again. This is due to overfitting. The model no longer learn to recognize numbers, but rather recognize the exact training samples. This is normal behavior.
 
 
 ## Code Behavior & Class Structure
@@ -53,8 +53,8 @@ Backpropagation happens in two steps. First, each node computes its error term b
 **Private members/variables:**  
 `_generator`: Used to initialize the weights of each node. It is static as otherwise each node will have the same weights. The weights of the entire network need to be random.  
 `_node_idx`: Index to identify the node in a layer.  
-`_weights`: The weights between this node and all nodes of the previous layer. These weights are the parameters that the network updates to correctly predict the data.
-`_prev_layer` and `_next_layer`: Pointers to the previous and next layer. Node pointers are used as information of nodes on previous layers change over time. Furthermore, by having a vector pointer, only two variables (the vector pointers) needs to be stored in a node. If it was a normal vector, each node would have to store as many node references as the previous and next layer have.  
+`_weights`: The weights between this node and all nodes of the previous layer. These weights are the parameters that the network updates to correctly predict the data.  
+`_prev_layer` and `_next_layer`: Pointers to the previous and next layer. Node pointers are used as information of nodes on previous layers change over time. Furthermore, by having a vector pointer, only two variables (the vector pointers) needs to be stored in a node. If it was a normal vector, each node would have to store as many node pointers as the previous and next layer have.  
 `_a`: Node activation.  
 `_o`: Node output.  
 `_error`: The error term that is computed during backwards
@@ -88,8 +88,21 @@ A dataloader specifically to load MNIST images with their labels from MNSIT_text
 
 Getting images with their ground truth works as follows: First, the index for the next image+ground truth pair is determined. Second the image and ground truth at that specific index are retrieved.
 
-`next`: Determine the next index. Is random for the train dataloader but deterministic for the test dataloader.
-`get_image` and `get_label`: Returns the image and ground truth label at the current index.
+**Protected variables and function.**  
+`_image`: The MNIST images as vectors of floats.  
+`_labels`: The labels of the images.  
+`_index`: The index of the current image and label.  
+`_get_labels` and `_get_images`: Reads the images and labels from disk.  
+These variables and functions are protected as they are used by the derived class.  
+
+**Public functions.**  
+`next`: Determine the next index. Is random for the train dataloader but deterministic for the test dataloader.  
+`get_image` and `get_label`: Returns the image and ground truth label at the current index.  
+`draw_image` and `draw_image_detail`: Displays the image on the terminal.
+
+
+**Derived classes**  
+The MNISTTrainLoader class has a random number generator to determine the next image at random. MNISTTestLoader increased the index sequentially.
 
 
 ## Rubric Points
