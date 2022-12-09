@@ -3,7 +3,9 @@ Udacity Capstone Project for the C++ nanodegree. Building my own application sta
 
 In this project, I have implemented a multilayer perceptron for MNIST image classification. Contrary to normal solutions implemented with tensors and matrix algebra, in my solution each node is a unique object. As such, we miss the great great optimization we get from tensor operations and also lose the ability for hardware optimization with CUDA. Nevertheless, it's a fun project where we can really break down the math to individual numbers being updated and also allowing us to use fundamental C++ concepts required to pass the capstone project.
 
-For a better understanding of backpropagation, I can highly recommend [this](https://brilliant.org/wiki/backpropagation/) page of Brilliant. 
+We use a slighly modified version of the MNIST dataset, namely MNIST_txt. The original dataset is represented in binary format. My MNIST_txt dataset has images represented as lines, where each line is are the pixel values of the image separated by ', '. This modification in the dataset makes it easier to parse, albeit at the cost of increased disk space requirement.
+
+For a better understanding of deep learning with a multilayered perceptron, I can highly recommend [this](https://brilliant.org/wiki/backpropagation/) page of Brilliant. 
 
 
 ## Motivation (can be skipped)
