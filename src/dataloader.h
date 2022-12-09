@@ -33,7 +33,7 @@ class MNISTTrainLoader : public MNISTDataloader{
     public:
     MNISTTrainLoader();
 
-    void next();  // Overload
+    void next();  // Override
 
     private:
     // Like Udacity's traffic light assignment.
@@ -49,7 +49,7 @@ class MNISTTestLoader : public MNISTDataloader{
     public:
     MNISTTestLoader();
 
-    void next();  // Overload
+    void next();  // Override
 };
 
 #endif
